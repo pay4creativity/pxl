@@ -1,0 +1,10 @@
+services:
+  paragraph_blocks.entity_manager:
+    class: Drupal\paragraph_blocks\ParagraphBlocksEntityManager
+    arguments: [ '@entity_type.manager', '@request_stack', '@module_handler' ]
+  paragraph_blocks.labeller:
+    class: Drupal\paragraph_blocks\ParagraphBlocksLabeller
+    arguments: [ '@paragraph_blocks.entity_manager', '@entity_field.manager', '@module_handler' ]
+  paragraph_blocks.entity_presave_helper:
+    class: Drupal\paragraph_blocks\ParagraphBlocksEntityPresaveHelper
+    arguments: [ '@tempstore.private', '@logger.factory' ]

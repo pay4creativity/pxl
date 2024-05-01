@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall hooks for the Paragraph blocks module.
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Make admin title field revisionable.
+ */
+function paragraph_blocks_update_9301(&$sandbox) {
+  $rows = paragraph_blocks_get_unrevisioned_admin_titles();
+
+  // Update field definition.
+  $field_definition = BaseFieldDefinition::create('string')
+    ->setLabel(t('Admin title'))
+    ->setDescription(t('The admin title is used to help identify paragraphs when using them as blocks.'))
+    ->setTranslatable(TRUE)
+    ->setRevisionable(TRUE)
+    ->setDisplayOptions('form', [
+      'type' => 'string_textfield',
+      'weight' => -10,
+    ])
+    ->setDisplayConfigurable('form', TRUE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('admin_title', 'paragraph', 'paragraph_blocks', $field_definition);
+
+  /** @var \Drupal\Core\Field\BaseFieldDefinition $storage_definition */
+  $storage_definition = \Drupal::entityDefinitionUpdateManager()
+    ->getFieldStorageDefinition('admin_title', 'paragraph');
+  $storage_definition->setSetting('revisionable', TRUE);
+  \Drupal::entityDefinitionUpdateManager()
+    ->updateFieldStorageDefinition($storage_definition);
+
+  paragraph_blocks_restore_unrevisioned_admin_titles($rows);
+}
+
+/**
+ * Restore admin titles that were present before revisions were introduced.
+ */
+function paragraph_blocks_update_9302(&$sandbox) {
+  $rows = paragraph_blocks_get_unrevisioned_admin_titles();
+  paragraph_blocks_restore_unrevisioned_admin_titles($rows);
+}
+
+/**
+ * Get admin title data stored in unrevisioned field data table.
+ *
+ * @return array
+ */
+function paragraph_blocks_get_unrevisioned_admin_titles() {
+  $rows = [];
+  $database = \Drupal::database();
+  $table = 'paragraphs_item_field_data';
+  if ($database->schema()->tableExists($table)) {
+    // The table data to restore after the update is completed.
+    $rows = $database->select($table, 'pifd')
+      ->fields('pifd', ['id', 'revision_id', 'admin_title'])
+      ->isNotNull('pifd.admin_title')
+      ->execute()
+      ->fetchAll();
+  }
+  return $rows;
+}
+
+/**
+ * Restore admin title data to revisioned field data table.
+ *
+ * Only restore if no newer admin title has been entered.
+ *
+ * @param array $rows
+ *
+ * @return void
+ */
+function paragraph_blocks_restore_unrevisioned_admin_titles(array $rows) {
+  $database = \Drupal::database();
+  $table_revision = 'paragraphs_item_revision_field_data';
+  if ($database->schema()->tableExists($table_revision)) {
+    if (!empty($rows)) {
+      foreach ($rows as $row) {
+        try {
+          $database->update($table_revision)
+            ->fields([
+              'admin_title' => $row->admin_title,
+            ])
+            ->condition('id', $row->id)
+            ->condition('revision_id', $row->revision_id)
+            ->isNull('admin_title')
+            ->execute();
+        }
+        catch (\Exception $e) {
+          // Keep silent.
+        }
+      }
+    }
+  }
+}

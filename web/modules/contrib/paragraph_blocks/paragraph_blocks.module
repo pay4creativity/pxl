@@ -1,0 +1,367 @@
+<?php
+
+/**
+ * @file
+ * Contains paragraph_blocks.module.
+ */
+
+use Drupal\Core\Entity\EntityFormInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\paragraph_blocks\Entity\ParagraphBlocksEntity;
+use Drupal\paragraph_blocks\ParagraphBlocksLabeller;
+use Drupal\paragraph_blocks\Plugin\Field\FieldWidget\ParagraphBlocksInlineParagraphsWidget;
+use Drupal\paragraphs\ParagraphsTypeInterface;
+
+/**
+ * Implements hook_help().
+ */
+function paragraph_blocks_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the paragraph_blocks module.
+    case 'help.page.paragraph_blocks':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Paragraph Blocks module allows you to place each value of a multi-value paragraph field into a different block. And further it allows you to place paragraph fields from related entities in a similar manner. It does so by extending both paragraphs with an admin title that is only used in the UI for layout and extending layout builder by providing the blocks for placement.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function paragraph_blocks_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+  if ($entity_type->id() === 'paragraph') {
+    $fields['admin_title'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Admin title'))
+      ->setDescription(t('The admin title is used to help identify paragraphs when using them as blocks.'))
+      ->setTranslatable(TRUE)
+      ->setRevisionable(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => -10,
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+  }
+
+  return $fields;
+}
+
+/**
+ * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
+ */
+function paragraph_blocks_plugin_filter_block__layout_builder_alter(array &$definitions, array $extra) {
+  // Remove unused paragraphs and update the layout builder title from the
+  // paragraph.
+  /** @var \Drupal\paragraph_blocks\ParagraphBlocksLabeller $labeller */
+  $labeller = \Drupal::service('paragraph_blocks.labeller');
+  $labeller->hookLayoutBuilderChooseBlocksAlter($definitions);
+}
+
+/**
+ * Implements hook_widget_info_alter().
+ */
+function paragraph_blocks_field_widget_info_alter(&$info) {
+  $info['entity_reference_paragraphs']['class'] = ParagraphBlocksInlineParagraphsWidget::class;
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function paragraph_blocks_entity_type_alter(&$entity_types) {
+  // @todo Allow multiple modules to override this class (with reflection)?
+  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
+  $entity_types['paragraph']->setClass(ParagraphBlocksEntity::class);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function paragraph_blocks_form_field_config_edit_form_alter(&$form, FormStateInterface $form_state) {
+  // Add a checkbox to field config form to enable/disable paragraph blocks
+  // for a paragraph field.
+  /** @var \Drupal\Core\Field\FieldConfigInterface $field_config */
+  $field_config = $form_state->getFormObject()->getEntity();
+  $settings = $field_config->getSettings();
+  if (isset($settings['handler']) && $settings['handler'] == 'default:paragraph') {
+    $form['third_party_settings']['paragraph_blocks']['status'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Enable Paragraph Blocks'),
+      '#default_value' => $field_config->getThirdPartySetting('paragraph_blocks', 'status', TRUE),
+    ];
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the entity view display edit form.
+ */
+function paragraph_blocks_form_entity_view_display_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $config = \Drupal::config('paragraph_blocks.settings');
+  if (!$config->get('individual_block_ui') && isset($form['layout']['layout_builder_restrictions'])) {
+    $validate_submit = FALSE;
+    $view_display = $form_state->getFormObject()->getEntity();
+    $target_type = $view_display->getTargetEntityTypeId();
+    $target_bundle = $view_display->getTargetBundle();
+    foreach ($form['layout']['layout_builder_restrictions']['allowed_blocks']['Paragraphs']['available_blocks'] ?? [] as $plugin_id => &$element) {
+      $plugin_parts = explode(':', $plugin_id);
+
+      if (count($plugin_parts) < 5) {
+        continue;
+      }
+
+      [
+        $plugin_type_id,
+        $plugin_entity_type_id,
+        $plugin_field_name,
+        $plugin_field_delta,
+        $plugin_field_bundle,
+      ] = $plugin_parts;
+
+      if ($plugin_field_bundle) {
+        // Remove if this paragraph field if it is not enabled.
+        $field_definitions = \Drupal::service('entity_field.manager')
+          ->getFieldDefinitions($plugin_entity_type_id, $plugin_field_bundle);
+        $field_config = $field_definitions[$plugin_field_name]->getConfig($plugin_field_bundle);
+        if (!$field_config->getThirdPartySetting('paragraph_blocks', 'status', 1)) {
+          // This field specifically disabled paragraph_blocks, remove it.
+          unset($form['layout']['layout_builder_restrictions']['allowed_blocks']['Paragraphs']['available_blocks'][$plugin_id]);
+          continue;
+        }
+      }
+
+      if ($plugin_type_id == ParagraphBlocksLabeller::PLUGIN_TYPE_ID) {
+        if ($plugin_entity_type_id == $target_type && $plugin_field_bundle == $target_bundle) {
+          if ($plugin_field_delta == 0) {
+            // Remove the delta number and present the user a general option to
+            // show/hide all widgets in the field.
+            $element['#title'] = str_replace("0", "", $element['#title']);
+            $validate_submit = TRUE;
+          }
+          else {
+            // Hide from view but leave in array so that it can be passed later
+            // to the validator.
+            $element['#access'] = FALSE;
+          }
+        }
+        else {
+          // This is for another bundle/entity type, remove it.
+          unset($form['layout']['layout_builder_restrictions']['allowed_blocks']['Paragraphs']['available_blocks'][$plugin_id]);
+        }
+      }
+    }
+
+    // We have at least one valid paragraph block field, so turn on our
+    // validator to handle it.
+    if ($validate_submit) {
+      $form['#validate'][] = '_paragraph_blocks_form_entity_view_display_edit_form_validate';
+    }
+  }
+}
+
+/**
+ * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
+ */
+function paragraph_blocks_plugin_filter_block__block_ui_alter(array &$definitions, array $extra) {
+  $config = \Drupal::config('paragraph_blocks.settings');
+  if (!$config->get('individual_block_ui')) {
+    foreach ($definitions as $id => $definition) {
+      // Filter out any layout_builder definition with required contexts.
+      if ($definition['provider'] === 'paragraph_blocks') {
+        unset($definitions[$id]);
+      }
+    }
+  }
+}
+
+/**
+ * {@inheritdoc}
+ */
+function _paragraph_blocks_form_entity_view_display_edit_form_validate(&$form, FormStateInterface $form_state) {
+  $content_values = $form_state->getValue([
+    'layout_builder_restrictions',
+    'allowed_blocks',
+    'Paragraphs',
+    'available_blocks',
+  ]);
+  foreach ($content_values as $plugin_id => $value) {
+    $plugin_parts = explode(':', $plugin_id);
+
+    if (count($plugin_parts) < 5) {
+      continue;
+    }
+
+    [
+      $plugin_type_id,
+      $plugin_entity_type_id,
+      $plugin_field_name,
+      $plugin_field_delta,
+      $plugin_field_bundle,
+    ] = $plugin_parts;
+    if ($plugin_type_id == ParagraphBlocksLabeller::PLUGIN_TYPE_ID) {
+      // If the plugin isn't the first delta and doesn't have a value set,
+      // populate it with delta zeros entry.
+      if ($plugin_field_delta != 0 && !is_numeric($value)) {
+        $delta_zero_id = $plugin_type_id . ':' . $plugin_entity_type_id . ':' . $plugin_field_name . ':0:' . $plugin_field_bundle;
+        $delta_zero_value = $form_state->getValue([
+          'layout_builder_restrictions',
+          'allowed_blocks',
+          'Paragraphs',
+          'available_blocks',
+          $delta_zero_id,
+        ]);
+        if (is_numeric($delta_zero_value)) {
+          $form_state->setValue([
+            'layout_builder_restrictions',
+            'allowed_blocks',
+            'Paragraphs',
+            'available_blocks',
+            $plugin_id,
+          ], $delta_zero_value);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function paragraph_blocks_field_widget_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
+  _paragraph_blocks_process_widget_form($element, $form_state, $context);
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function paragraph_blocks_field_widget_entity_reference_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
+  _paragraph_blocks_process_widget_form($element, $form_state, $context);
+}
+
+/**
+ * Common helper hides the admin title if it's not enabled on the field.
+ *
+ * @param array $element
+ *   The field widget form element as constructed by
+ *   \Drupal\Core\Field\WidgetBaseInterface::form().
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ * @param array $context
+ *   An associative array containing the key-value pairs.
+ *
+ * @see hook_field_widget_WIDGET_TYPE_form_alter()
+ */
+function _paragraph_blocks_process_widget_form(array &$element, FormStateInterface $form_state, array $context) {
+  $form_object = $form_state->getFormObject();
+  if ($form_object instanceof EntityFormInterface) {
+    $bundle = $form_object->getEntity()->bundle();
+    /** @var \Drupal\Core\Field\FieldConfigInterface $field_config */
+    $field_config = $context['items']->getFieldDefinition()->getConfig($bundle);
+
+    if (!$field_config->getThirdPartySetting('paragraph_blocks', 'status', TRUE)) {
+      $element['subform']['admin_title']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function paragraph_blocks_entity_presave(EntityInterface $entity) {
+  if (method_exists($entity, 'isSyncing') && $entity->isSyncing()) {
+    // For the case where we have Workspace being published, doing the logic
+    // beyond this breaks the appearance of paragraphs in the page when it is
+    // deployed to the Live workspace. Workspaces sets that it is syncing, and
+    // we'll use that to prevent proceeding and causing our paragraphs to have
+    // incorrect order in the layout.
+    //
+    // One thing I'm uncertain of is if using this flag causes issues in other
+    // cases where the syncing flag might be used. Info on sync:
+    // https://www.drupal.org/project/drupal/issues/2985297
+    //
+    return;
+  }
+
+  // Check if entity is using layout builder.
+  if (method_exists($entity, 'hasField') && $entity->hasField('layout_builder__layout')) {
+    /** @var \Drupal\paragraph_blocks\ParagraphBlocksEntityPresaveHelper $presave_helper */
+    $presave_helper = \Drupal::service('paragraph_blocks.entity_presave_helper');
+    $presave_helper->setEntity($entity);
+    $presave_helper->updateLayoutBuilderConfiguration();
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function paragraph_blocks_form_paragraphs_type_form_alter(&$form, FormStateInterface $form_state) {
+  // Adds paragraph type grouping to the form.
+  /** @var \Drupal\paragraphs\ParagraphsTypeInterface $paragraph_type */
+  $paragraph_type = $form_state->getFormObject()->getEntity();
+  $form['#entity_builders'][] = 'paragraph_blocks_form_paragraphs_type_form_builder';
+
+  $form['default_admin_title'] = [
+    '#type' => 'textfield',
+    '#title' => t('Default admin title'),
+    '#description' => t('Set a default admin title for this paragraph type. The total aggregated output of each admin title is truncated to 100 characters.'),
+    '#default_value' => $paragraph_type->getThirdPartySetting('paragraph_blocks', 'default_admin_title', ''),
+  ];
+
+  if (\Drupal::moduleHandler()->moduleExists('token')) {
+    $form['default_admin_title']['#element_validate'][] = 'token_element_validate';
+    $form['default_admin_title']['#description'] .= ' ' . t('You can use tokens such as [paragraph:field_text]. The replaced token values will be calculated when truncating the field and might be trimmed in the field output.');
+
+    $form['default_admin_title_help'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => 'all',
+      '#global_types' => TRUE,
+    ];
+  }
+}
+
+/**
+ * Sets the default admin title for a paragraph type.
+ *
+ * @param $entity_type
+ * @param \Drupal\paragraphs\ParagraphsTypeInterface $type
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *
+ * @return void
+ */
+function paragraph_blocks_form_paragraphs_type_form_builder($entity_type, ParagraphsTypeInterface $type, &$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('default_admin_title')) {
+    $type->setThirdPartySetting('paragraph_blocks', 'default_admin_title', $form_state->getValue('default_admin_title'));
+  }
+}
+
+/**
+ * Sets the default admin title for a paragraph.
+ */
+function paragraph_blocks_paragraph_create(\Drupal\Core\Entity\EntityInterface $entity) {
+  $type = $entity->getParagraphType()->getThirdPartySetting('paragraph_blocks', 'default_admin_title');
+
+  if (!empty($type)) {
+    $entity->set('admin_title', $type);
+  }
+}
+
+/**
+ * Implements hook_field_widget_complete_form_alter().
+ */
+function paragraph_blocks_field_widget_complete_form_alter(&$field_widget_complete_form, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+  if(!\Drupal::moduleHandler()->moduleExists('token')) {
+    return;
+  }
+  if (isset($context['items']) && $context['items']->getName() == 'admin_title' && $context['items']->getEntity()->getEntityTypeId() == 'paragraph') {
+    $field_widget_complete_form["widget"][0]["value"]['#element_validate'] = ['token_element_validate'];
+
+    $field_widget_complete_form["widget"][] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => 'all',
+      '#global_types' => TRUE,
+    ];
+  }
+}
