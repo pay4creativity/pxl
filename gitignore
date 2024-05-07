@@ -1,0 +1,12 @@
+# Ignore everything
+/*
+
+# Except for these folders
+!/core/
+!/modules/
+!/profiles/
+!/sites/
+!/themes/
+
+# Allow hidden files and folders
+!.*/
