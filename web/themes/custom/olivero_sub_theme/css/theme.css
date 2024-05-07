@@ -1,0 +1,75 @@
+/**
+ * @file
+ * Olivero specific CSS overrides.
+ */
+
+ .main-content__container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10rem;
+    margin: 2.125rem 0;
+ }
+ .hero-banner .banner-inner-content {
+    background: var( --color--white);
+    display: block;
+    height: 384px;
+    padding: 0 2.5rem;
+    position: absolute;
+    top: 0px;
+    width: 400px;
+    text-align: justify;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.text-component-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8rem;
+}
+.text-component-wrapper .image-container {
+    padding: 20px;
+    min-width: 50%;
+    margin-top: 3.1rem;
+}
+.text-component-wrapper .description {
+    padding: 20px;
+    min-width: 50%;
+}
+h5,h2,h1,h4 {
+    color: var( --color-text-primary-medium);
+}
+.menu--footer > ul.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.menu--footer ul.menu li {
+    min-width: 30%;
+}
+.menu--footer > ul.menu li ul{
+    margin-inline-start: 0;
+}
+.menu--footer .menu--level-1 > .menu__item > a {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.site-footer .site-footer__inner{
+    padding-block: var(--sp4);
+}
+@media (max-width: 90rem) {
+    .text-component-wrapper {
+        flex-wrap: wrap;
+    }
+    .hero-banner .banner-inner-content {
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+    .banner-heading h5{
+        margin: 0;
+        padding: 10px 0;
+    }
+}
