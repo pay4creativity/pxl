@@ -1,0 +1,24 @@
+uuid: 5ef88224-217a-46c8-a38a-ccfb529d9654
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.banner
+  module:
+    - views
+  theme:
+    - olivero_sub_theme
+id: olivero_sub_theme_views_block__banner_block_1
+theme: olivero_sub_theme
+region: hero
+weight: 0
+provider: null
+plugin: 'views_block:banner-block_1'
+settings:
+  id: 'views_block:banner-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }
