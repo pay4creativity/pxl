@@ -1,0 +1,32 @@
+uuid: 04cd376a-4164-4ea4-ab83-e1cafc6d9a5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_block
+    - field.field.block_content.footer_block.body
+    - field.field.block_content.footer_block.field_logo
+  module:
+    - text
+id: block_content.footer_block.default
+targetEntityType: block_content
+bundle: footer_block
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_logo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

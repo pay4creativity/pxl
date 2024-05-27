@@ -1,0 +1,44 @@
+uuid: d3d857e3-1859-4694-909e-68bb328665f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_horizontal_cards
+    - node.type.article
+    - paragraphs.paragraphs_type.card_grid_2x2
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 1
+id: node.article.field_horizontal_cards
+field_name: field_horizontal_cards
+entity_type: node
+bundle: article
+label: 'Horizontal cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_grid_2x2: card_grid_2x2
+    negate: 0
+    target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 5
+        enabled: true
+      landing_page_banner:
+        weight: 6
+        enabled: false
+      simple_card:
+        weight: 7
+        enabled: false
+      text_component:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,47 @@
+uuid: 4c842fc0-60c3-4a3d-b1ce-b01ae1c820b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_case_study
+    - node.type.article
+    - paragraphs.paragraphs_type.case_study
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 0
+id: node.article.field_case_study
+field_name: field_case_study
+entity_type: node
+bundle: article
+label: 'Case study'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      case_study: case_study
+    negate: 0
+    target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 7
+        enabled: false
+      case_study:
+        weight: 6
+        enabled: true
+      landing_page_banner:
+        weight: 8
+        enabled: false
+      simple_card:
+        weight: 9
+        enabled: false
+      text_component:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

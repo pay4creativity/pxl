@@ -1,0 +1,24 @@
+uuid: 9cc54533-3d5f-44d0-b495-650b0e05d1ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simple_card_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.case_study
+  module:
+    - text
+id: paragraph.case_study.field_simple_card_description
+field_name: field_simple_card_description
+entity_type: paragraph
+bundle: case_study
+label: 'Case study description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

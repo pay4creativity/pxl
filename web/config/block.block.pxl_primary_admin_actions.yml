@@ -1,0 +1,20 @@
+uuid: efc9063e-72d8-4e12-a943-133ef065c6e0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - pxl
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: pxl_primary_admin_actions
+theme: pxl
+region: featured
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

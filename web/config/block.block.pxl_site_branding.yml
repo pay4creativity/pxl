@@ -1,0 +1,25 @@
+uuid: 51f096b5-6152-48d5-817e-5825170de6ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pxl
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: pxl_site_branding
+theme: pxl
+region: header
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

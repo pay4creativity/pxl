@@ -1,0 +1,63 @@
+uuid: a039757c-7b7c-415c-9ed7-9ead5d66e3c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_with_pointers.field_background_image
+    - field.field.paragraph.card_with_pointers.field_card_title
+    - field.field.paragraph.card_with_pointers.field_component_image
+    - field.field.paragraph.card_with_pointers.field_list
+    - field.field.paragraph.card_with_pointers.field_simple_card_description
+    - paragraphs.paragraphs_type.card_with_pointers
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.card_with_pointers.default
+targetEntityType: paragraph
+bundle: card_with_pointers
+mode: default
+content:
+  field_background_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_card_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_component_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_list:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_simple_card_description:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

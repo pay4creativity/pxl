@@ -1,0 +1,56 @@
+uuid: 67675143-7427-4229-8955-27c991c7865b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_brief_introduction
+    - node.type.article
+    - paragraphs.paragraphs_type.card_with_pointers
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 0
+id: node.article.field_brief_introduction
+field_name: field_brief_introduction
+entity_type: node
+bundle: article
+label: 'Brief Introduction'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_with_pointers: card_with_pointers
+    negate: 0
+    target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 9
+        enabled: false
+      card_with_pointers:
+        weight: 10
+        enabled: true
+      case_study:
+        weight: 11
+        enabled: false
+      component_with_vertical_cards:
+        weight: 12
+        enabled: false
+      landing_page_banner:
+        weight: 13
+        enabled: false
+      simple_card:
+        weight: 14
+        enabled: false
+      text_comp:
+        weight: 15
+        enabled: false
+      vertical_cards:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

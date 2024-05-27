@@ -1,0 +1,56 @@
+uuid: 00e52ad2-6364-40ca-bb1b-a701e217dc59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list
+    - paragraphs.paragraphs_type.card_with_pointers
+    - paragraphs.paragraphs_type.text_comp
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 0
+id: paragraph.card_with_pointers.field_list
+field_name: field_list
+entity_type: paragraph
+bundle: card_with_pointers
+label: List
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text_comp: text_comp
+    negate: 0
+    target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 9
+        enabled: false
+      card_with_pointers:
+        weight: 10
+        enabled: false
+      case_study:
+        weight: 11
+        enabled: false
+      component_with_vertical_cards:
+        weight: 12
+        enabled: false
+      landing_page_banner:
+        weight: 13
+        enabled: false
+      simple_card:
+        weight: 14
+        enabled: false
+      text_comp:
+        weight: 15
+        enabled: true
+      vertical_cards:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

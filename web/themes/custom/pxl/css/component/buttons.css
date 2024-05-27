@@ -1,0 +1,79 @@
+.contact-us-btn {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    line-height: 33px;
+    padding: 0 20px;
+    min-width: 100px;
+    color: #fff !important;
+    background: linear-gradient(127deg, #ffbf00, #ffc107 50%, #fd0000);
+    height: 35px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    margin: 13px 20px;
+}
+.contact-us-btn:hover,
+.contact-us-btn:focus {
+    color: #fff;
+    background: #6788f8;
+}
+
+.dream-btn {
+    position: relative;
+    z-index: 1;
+    min-width: 180px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    color: #fff;
+    box-shadow: 0 3ox 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #6788f8;
+    border: 1px solid #fff;
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+}
+/*
+    background-image: -webkit-linear-gradient(to right,#FF4137 0,#FDC800 51%,#FF4137 100%);
+    background-image: linear-gradient(to right,#FF4137 0,#FDC800 51%,#FF4137 100%);
+    box-shadow: 0 0 15px 0 rgba(255, 125, 55, 0.9);
+*/
+.pxl-btn:hover {
+    background-position: right center;
+    color: #fff;
+}
+
+.pxl-btn {
+    position: relative;
+    z-index: 1;
+    min-width: 160px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    color: #fff;
+    box-shadow: 0 3ox 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-image:linear-gradient(289deg, #ffbf00, #f58820 50%, #ff9600);
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+}
+.pxl-btn:hover {
+    background-position: right center;
+    color: #fff;
+}

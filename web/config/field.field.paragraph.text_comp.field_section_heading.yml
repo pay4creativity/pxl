@@ -1,0 +1,19 @@
+uuid: 31d1e74c-fa92-4e64-a34a-e2a7ec746a4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_heading
+    - paragraphs.paragraphs_type.text_comp
+id: paragraph.text_comp.field_section_heading
+field_name: field_section_heading
+entity_type: paragraph
+bundle: text_comp
+label: 'Section heading'
+description: 'Add section heading.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

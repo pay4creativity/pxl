@@ -1,0 +1,8 @@
+# Schema for the configuration files of the pxl theme.
+pxl.settings:
+  type: theme_settings
+  label: 'pxl settings'
+  mapping:
+    example:
+      type: string
+      label: Example

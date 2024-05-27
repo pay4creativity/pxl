@@ -1,0 +1,23 @@
+uuid: 572ca9aa-108c-4edf-a4df-41dea43352a2
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - pxl
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: pxl_search_form_wide
+theme: pxl
+region: secondary_menu
+weight: -7
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

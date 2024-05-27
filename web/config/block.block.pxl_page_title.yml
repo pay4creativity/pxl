@@ -1,0 +1,26 @@
+uuid: 1f759b7b-493a-4ba7-af94-6f12acd88a7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pxl
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: pxl_page_title
+theme: pxl
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

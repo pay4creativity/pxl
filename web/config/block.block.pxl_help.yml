@@ -1,0 +1,22 @@
+uuid: d95bbaa9-eb8b-44d3-9583-830fbe308d5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - pxl
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: pxl_help
+theme: pxl
+region: content
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

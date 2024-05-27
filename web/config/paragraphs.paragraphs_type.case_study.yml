@@ -1,0 +1,15 @@
+uuid: 7bc39663-4c74-4eac-bb52-187366139435
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: case_study
+label: 'Case study'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

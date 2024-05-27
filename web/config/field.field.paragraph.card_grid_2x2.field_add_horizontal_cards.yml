@@ -1,0 +1,44 @@
+uuid: a6fffc1d-ef99-421b-9c5f-046d4e293e7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_add_horizontal_cards
+    - paragraphs.paragraphs_type.card_grid_2x2
+    - paragraphs.paragraphs_type.simple_card
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 1
+id: paragraph.card_grid_2x2.field_add_horizontal_cards
+field_name: field_add_horizontal_cards
+entity_type: paragraph
+bundle: card_grid_2x2
+label: 'Add horizontal cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      simple_card: simple_card
+    negate: 0
+    target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 5
+        enabled: false
+      landing_page_banner:
+        weight: 6
+        enabled: false
+      simple_card:
+        weight: 7
+        enabled: true
+      text_component:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

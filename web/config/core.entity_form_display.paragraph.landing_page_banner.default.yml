@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.landing_page_banner.field_banner_image
     - field.field.paragraph.landing_page_banner.field_cta
     - field.field.paragraph.landing_page_banner.field_description
+    - field.field.paragraph.landing_page_banner.field_link_2
     - field.field.paragraph.landing_page_banner.field_title
     - paragraphs.paragraphs_type.landing_page_banner
   module:
@@ -39,6 +40,14 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_link_2:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_title:
     type: string_textfield

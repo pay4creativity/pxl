@@ -26,7 +26,6 @@
   display: flex;
   align-items: flex-end;
   align-self: stretch;
-  background-color: var(--color--primary-50);
 }
 
 .site-header__fixable {
@@ -59,7 +58,6 @@
   z-index: 1; /* Appear in front of Drupal's tabs. */
   flex-grow: 1;
   width: calc(100vw - var(--content-left) - var(--drupal-displace-offset-left, 0px) - var(--drupal-displace-offset-right, 0px));
-  background: var(--color--white);
 }
 
 /*

@@ -1,0 +1,24 @@
+uuid: cec78638-b8c5-4c3b-86ce-4d017336d5e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simple_card_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.simple_card
+  module:
+    - text
+id: paragraph.simple_card.field_simple_card_description
+field_name: field_simple_card_description
+entity_type: paragraph
+bundle: simple_card
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

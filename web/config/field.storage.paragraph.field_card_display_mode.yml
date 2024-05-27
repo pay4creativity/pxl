@@ -1,0 +1,27 @@
+uuid: 53dcc7ec-07b4-4592-9fb2-a0b93d005ae0
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_card_display_mode
+field_name: field_card_display_mode
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 2_column_layout
+      label: '2 column layout'
+    -
+      value: 4_column_layout
+      label: '4 column layout'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

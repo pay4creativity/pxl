@@ -1,0 +1,15 @@
+uuid: 56be8ea3-f11b-42e9-beac-e5ce5c2f9f3d
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: vertical_cards
+label: 'Vertical cards'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

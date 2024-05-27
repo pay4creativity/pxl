@@ -1,0 +1,74 @@
+uuid: 3b288e4d-f884-4069-8ea1-3573e9c58ce8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.case_study.field_card_image
+    - field.field.paragraph.case_study.field_card_title
+    - field.field.paragraph.case_study.field_cta
+    - field.field.paragraph.case_study.field_display_type
+    - field.field.paragraph.case_study.field_section_heading
+    - field.field.paragraph.case_study.field_simple_card_description
+    - paragraphs.paragraphs_type.case_study
+  module:
+    - link
+    - options
+    - text
+id: paragraph.case_study.default
+targetEntityType: paragraph
+bundle: case_study
+mode: default
+content:
+  field_card_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_card_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_display_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_section_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_simple_card_description:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

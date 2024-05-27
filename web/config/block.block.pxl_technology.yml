@@ -1,0 +1,25 @@
+uuid: 8b679ba8-6446-45b7-9000-1a429b205d8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.technology
+  module:
+    - system
+  theme:
+    - pxl
+id: pxl_technology
+theme: pxl
+region: footer_top
+weight: -8
+provider: null
+plugin: 'system_menu_block:technology'
+settings:
+  id: 'system_menu_block:technology'
+  label: Technology
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

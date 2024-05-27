@@ -1,0 +1,19 @@
+uuid: db5e0ed5-17b8-4d4e-95cb-fdfc541d4b31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_heading
+    - paragraphs.paragraphs_type.card_grid_2x2
+id: paragraph.card_grid_2x2.field_section_heading
+field_name: field_section_heading
+entity_type: paragraph
+bundle: card_grid_2x2
+label: 'Section heading'
+description: 'Add section heading.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -33,6 +33,7 @@ module:
   link: 0
   media: 0
   media_library: 0
+  menu_link_attributes: 0
   menu_link_content: 0
   menu_ui: 0
   mysql: 0
@@ -59,4 +60,5 @@ theme:
   olivero: 0
   claro: 0
   olivero_sub_theme: 0
+  pxl: 0
 profile: standard

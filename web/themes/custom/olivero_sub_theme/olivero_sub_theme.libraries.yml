@@ -6,3 +6,4 @@ global-styling:
     base:
       css/theme.css: {}
       css/hero-banner.css: {}
+      css/bootstrap.min.css: {}

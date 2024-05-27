@@ -1,0 +1,15 @@
+uuid: 5db98f55-0d23-4cea-91cb-3a19493b0e55
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: simple_card
+label: 'Simple horizontal card'
+icon_uuid: null
+icon_default: null
+description: 'Simple card with Logo title and description.'
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

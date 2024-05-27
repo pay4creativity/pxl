@@ -1,0 +1,22 @@
+uuid: 83b36ab0-c162-40ea-8e7e-73d374705da1
+langcode: en
+status: true
+dependencies:
+  theme:
+    - pxl
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: pxl_primary_local_tasks
+theme: pxl
+region: featured
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

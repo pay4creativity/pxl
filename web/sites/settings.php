@@ -12,7 +12,6 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 $settings['hash_salt'] = 'z0bR1gwAT6osvTz7aVz9rBbeaNfCWBVWMFdqyRVbcfNXtiRVcRL7OkjeFR_DQSSUd_t7sjveuA';
-$settings['config_sync_directory'] = 'sites/default/files/config_zwCd14jRz8Fgzqrgn6MtZRGhIsfqBiNppd_eKmWebwZgOJcu3TeVwikLn-_Tu8gYqFOJhUEoug/sync';
 
 $settings['trusted_host_patterns'] = [
 '^pixelerant.com$',

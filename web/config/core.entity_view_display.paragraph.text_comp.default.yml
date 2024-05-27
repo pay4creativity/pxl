@@ -1,0 +1,31 @@
+uuid: 6325ac0a-914c-4dcd-9d58-59841a00ae53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text_comp.field_description
+    - field.field.paragraph.text_comp.field_section_heading
+    - paragraphs.paragraphs_type.text_comp
+  module:
+    - text
+id: paragraph.text_comp.default
+targetEntityType: paragraph
+bundle: text_comp
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_section_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

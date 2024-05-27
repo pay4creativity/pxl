@@ -1,0 +1,19 @@
+uuid: 6e372af5-1dc9-40d7-ac7a-a220a63b53a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_heading
+    - paragraphs.paragraphs_type.case_study
+id: paragraph.case_study.field_section_heading
+field_name: field_section_heading
+entity_type: paragraph
+bundle: case_study
+label: 'Section heading'
+description: 'Add case study heading.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

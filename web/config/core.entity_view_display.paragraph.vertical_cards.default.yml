@@ -1,0 +1,42 @@
+uuid: 946f6bc9-7478-479a-9526-7d98666bc18f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.vertical_cards.field_card_image
+    - field.field.paragraph.vertical_cards.field_card_title
+    - field.field.paragraph.vertical_cards.field_simple_card_description
+    - paragraphs.paragraphs_type.vertical_cards
+  module:
+    - text
+id: paragraph.vertical_cards.default
+targetEntityType: paragraph
+bundle: vertical_cards
+mode: default
+content:
+  field_card_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_card_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_simple_card_description:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

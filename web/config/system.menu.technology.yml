@@ -1,0 +1,8 @@
+uuid: 918f1803-ea93-4e7c-b29f-c78669d12620
+langcode: en
+status: true
+dependencies: {  }
+id: technology
+label: Technology
+description: ''
+locked: false

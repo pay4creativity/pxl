@@ -1,0 +1,24 @@
+uuid: fa1d6263-8209-4f2b-b4f5-35a04db7143e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.text_comp
+  module:
+    - text
+id: paragraph.text_comp.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: text_comp
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

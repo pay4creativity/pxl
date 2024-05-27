@@ -6,7 +6,7 @@
  */
 
 use \Drupal\Core\Asset\AttachedAssetsInterface;
-
+use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_css_alter().
  */
@@ -20,4 +20,17 @@ function olivero_sub_theme_css_alter(&$css, AttachedAssetsInterface $assets) {
       $css[$cssFile]['data'] = str_replace($oliveroThemePath, $myThemePath, $css[$cssFile]['data']);
     }
   }
+}
+function olivero_sub_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['olivero_settings']['olivero_utilities']['site_branding_bg_color'] = [
+    '#type' => 'select',
+    '#title' => t('Header site branding background color'),
+    '#options' => [
+      'default' => t('Primary Branding Color'),
+      'gray' => t('Gray'),
+      'white' => t('White'),
+      'blue' => t('Blue'),
+    ],
+    '#default_value' => theme_get_setting('site_branding_bg_color'),
+  ];
 }

@@ -1,0 +1,15 @@
+uuid: 0b11adfe-2ada-48ad-8b99-40a4e6f8ab4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: card_with_pointers
+label: 'Card with pointers'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

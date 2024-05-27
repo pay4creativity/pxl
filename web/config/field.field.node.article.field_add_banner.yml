@@ -29,9 +29,15 @@ settings:
       landing_page_banner: landing_page_banner
     negate: 0
     target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 5
+        enabled: false
       landing_page_banner:
         weight: 3
         enabled: true
+      simple_card:
+        weight: 7
+        enabled: false
       text_component:
         weight: 4
         enabled: false

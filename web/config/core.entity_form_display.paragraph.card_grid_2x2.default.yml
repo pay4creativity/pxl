@@ -1,0 +1,91 @@
+uuid: d68cc196-85fa-4543-a3c3-53847c981111
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_grid_2x2.field_add_horizontal_cards
+    - field.field.paragraph.card_grid_2x2.field_card_display_mode
+    - field.field.paragraph.card_grid_2x2.field_section_description
+    - field.field.paragraph.card_grid_2x2.field_section_heading
+    - field.field.paragraph.card_grid_2x2.field_section_logo_image
+    - field.field.paragraph.card_grid_2x2.field_section_title
+    - paragraphs.paragraphs_type.card_grid_2x2
+  module:
+    - media_library
+    - paragraphs
+    - text
+id: paragraph.card_grid_2x2.default
+targetEntityType: paragraph
+bundle: card_grid_2x2
+mode: default
+content:
+  admin_title:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_add_horizontal_cards:
+    type: paragraphs
+    weight: -5
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: simple_card
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        convert: '0'
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_card_display_mode:
+    type: options_select
+    weight: -4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_section_description:
+    type: text_textarea_with_summary
+    weight: -6
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_section_heading:
+    type: string_textfield
+    weight: -8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_logo_image:
+    type: media_library_widget
+    weight: -9
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_section_title:
+    type: string_textfield
+    weight: -7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

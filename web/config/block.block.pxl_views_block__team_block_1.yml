@@ -1,0 +1,24 @@
+uuid: d4c374dd-0bf4-417b-9c14-085f769ca8ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.team
+  module:
+    - views
+  theme:
+    - pxl
+id: pxl_views_block__team_block_1
+theme: pxl
+region: content_bottom
+weight: 0
+provider: null
+plugin: 'views_block:team-block_1'
+settings:
+  id: 'views_block:team-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

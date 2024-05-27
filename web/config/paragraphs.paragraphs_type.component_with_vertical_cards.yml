@@ -1,0 +1,15 @@
+uuid: d87aa39d-29d3-44b3-b17a-9012190b9cca
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: component_with_vertical_cards
+label: 'Component with vertical cards'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

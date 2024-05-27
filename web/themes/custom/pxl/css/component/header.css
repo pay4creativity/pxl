@@ -1,0 +1,23 @@
+.fixed-top {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 1030;
+}
+@include(pxl.medium){
+    .shrink{animation:none;}
+    .login-btn{
+        margin-left: 15px !important;
+        margin-top: 15px !important
+    }
+    .navbar-collapse .navbar-nav .nav-item .nav-link{
+        padding: 5px 12px;
+        color: #333
+    }
+    .navbar-expand-lg.navbar-dark {background: rgb(215, 223, 239);}
+    .navbar-collapse{
+        padding-top: 20px;
+        background: rgb(215, 223, 239)
+    }
+}

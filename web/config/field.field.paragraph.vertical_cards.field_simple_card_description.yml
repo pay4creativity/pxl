@@ -1,0 +1,24 @@
+uuid: 4c13dd21-c008-4d3b-9632-fd01e2a32e12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simple_card_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.vertical_cards
+  module:
+    - text
+id: paragraph.vertical_cards.field_simple_card_description
+field_name: field_simple_card_description
+entity_type: paragraph
+bundle: vertical_cards
+label: 'Card description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

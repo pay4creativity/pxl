@@ -1,0 +1,42 @@
+uuid: d6df3722-492f-477b-9937-b25c8636250e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text_comp.field_description
+    - field.field.paragraph.text_comp.field_section_heading
+    - paragraphs.paragraphs_type.text_comp
+  module:
+    - text
+id: paragraph.text_comp.default
+targetEntityType: paragraph
+bundle: text_comp
+mode: default
+content:
+  admin_title:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_heading:
+    type: string_textfield
+    weight: -8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

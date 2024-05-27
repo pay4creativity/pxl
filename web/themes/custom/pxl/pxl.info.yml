@@ -1,0 +1,19 @@
+name: pxl
+type: theme
+base theme: claro
+description: Front end theme for Pixelerant
+package: Custom
+core_version_requirement: ^10
+libraries:
+  - pxl/global
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  hero: Hero (full width)
+  featured: 'Featured'
+  breadcrumb: 'Breadcrumb'
+  content: 'Content'
+  content_bottom: 'Content bottom'
+  footer_top: 'Footer top'
+  footer: 'Footer'

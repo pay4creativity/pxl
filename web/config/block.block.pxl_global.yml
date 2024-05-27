@@ -1,0 +1,25 @@
+uuid: 45981a04-be40-4a10-864f-09674b069c9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.global
+  module:
+    - system
+  theme:
+    - pxl
+id: pxl_global
+theme: pxl
+region: footer_top
+weight: -6
+provider: null
+plugin: 'system_menu_block:global'
+settings:
+  id: 'system_menu_block:global'
+  label: Global
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

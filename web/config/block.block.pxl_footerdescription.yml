@@ -1,0 +1,25 @@
+uuid: d66b4913-be96-4aa8-9af8-4a1c08059cc0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:footer_block:57a47e60-8365-4fbf-977b-87a075aa2e13'
+  module:
+    - block_content
+  theme:
+    - pxl
+id: pxl_footerdescription
+theme: pxl
+region: footer_top
+weight: -9
+provider: null
+plugin: 'block_content:57a47e60-8365-4fbf-977b-87a075aa2e13'
+settings:
+  id: 'block_content:57a47e60-8365-4fbf-977b-87a075aa2e13'
+  label: 'Footer description'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

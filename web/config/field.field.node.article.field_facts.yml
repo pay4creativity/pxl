@@ -1,0 +1,50 @@
+uuid: 7edeac37-9416-4add-9eee-d644bc3f0eb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_facts
+    - node.type.article
+    - paragraphs.paragraphs_type.component_with_vertical_cards
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 0
+id: node.article.field_facts
+field_name: field_facts
+entity_type: node
+bundle: article
+label: Facts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      component_with_vertical_cards: component_with_vertical_cards
+    negate: 0
+    target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 8
+        enabled: false
+      case_study:
+        weight: 9
+        enabled: false
+      component_with_vertical_cards:
+        weight: 7
+        enabled: true
+      landing_page_banner:
+        weight: 10
+        enabled: false
+      simple_card:
+        weight: 11
+        enabled: false
+      text_component:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

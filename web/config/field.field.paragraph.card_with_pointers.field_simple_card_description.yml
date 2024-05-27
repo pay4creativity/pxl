@@ -1,0 +1,24 @@
+uuid: f2e64406-f73b-4bce-9527-b4c91108fe5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simple_card_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.card_with_pointers
+  module:
+    - text
+id: paragraph.card_with_pointers.field_simple_card_description
+field_name: field_simple_card_description
+entity_type: paragraph
+bundle: card_with_pointers
+label: Introduction
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

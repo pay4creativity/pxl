@@ -1,0 +1,15 @@
+uuid: c8d0e158-6663-45e8-9114-450f0ff8c025
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: text_comp
+label: 'Text component'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

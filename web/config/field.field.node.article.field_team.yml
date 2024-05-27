@@ -1,0 +1,57 @@
+uuid: 4f77bf65-0def-4783-903e-0ef5f1fcf0b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_team
+    - node.type.article
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 1
+id: node.article.field_team
+field_name: field_team
+entity_type: node
+bundle: article
+label: Team
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: {  }
+    negate: 0
+    target_bundles_drag_drop:
+      card_grid_2x2:
+        weight: 11
+        enabled: false
+      card_with_pointers:
+        weight: 12
+        enabled: false
+      case_study:
+        weight: 13
+        enabled: false
+      component_with_vertical_cards:
+        weight: 14
+        enabled: false
+      landing_page_banner:
+        weight: 15
+        enabled: false
+      profile_cards:
+        weight: 10
+        enabled: true
+      simple_card:
+        weight: 16
+        enabled: false
+      text_comp:
+        weight: 17
+        enabled: false
+      vertical_cards:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

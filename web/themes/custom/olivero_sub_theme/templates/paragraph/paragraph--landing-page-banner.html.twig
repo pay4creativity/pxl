@@ -46,7 +46,7 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{% block paragraph %}
+{# {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
     <div class = "hero-banner">
@@ -62,4 +62,37 @@
     </div>
     {% endblock %}
   </div>
+{% endblock paragraph %} #}
+
+{% block paragraph %}
+{% set img_url = paragraph.field_banner_image.entity.field_media_image.entity.uri.value %}
+    {% block content %}
+<div class="hero-section moving section-padding" id="home" style="background-image: url({{file_url(img_url)}})">
+        <!-- Hero Content -->
+        <div class="hero-section-content">
+
+            <div class="container ">
+                <div class="row align-items-center">
+                    <!-- Welcome Content -->
+                    <div class="col-12 col-lg-6 col-md-12">
+                        <div class="welcome-content">
+
+                            <h1 class="fadeInUp" data-wow-delay="0.2s">{{ content.field_title['#items'].value }}</h1>
+                            <p class="w-text fadeInUp" data-wow-delay="0.3s">{{ content.field_description['#items'].value|raw }}</p>
+                            <div class="dream-btn-group fadeInUp" data-wow-delay="0.4s">
+                                <a class='btn more-btn mr-3' href='/services'>{{ content.field_cta }}</a>
+                                <a class='btn more-btn' href='/contact-us'>{{ content.field_cta }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
 {% endblock paragraph %}

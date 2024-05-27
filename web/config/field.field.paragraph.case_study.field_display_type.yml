@@ -1,0 +1,21 @@
+uuid: a99d4170-79b0-4ff9-b3e6-95e8b50bb829
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_type
+    - paragraphs.paragraphs_type.case_study
+  module:
+    - options
+id: paragraph.case_study.field_display_type
+field_name: field_display_type
+entity_type: paragraph
+bundle: case_study
+label: 'Display type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
