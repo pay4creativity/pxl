@@ -1,0 +1,21 @@
+uuid: f1f9dc8c-511d-42ed-b1a5-27386eac8f55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_need_image
+    - paragraphs.paragraphs_type.text_component
+id: paragraph.text_component.field_need_image
+field_name: field_need_image
+entity_type: paragraph
+bundle: text_component
+label: 'Need Image'
+description: 'Check if you want to upload an image'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
