@@ -55,9 +55,9 @@
       <div class="row">
        {% for row in content['#view'].result %}
           <div class="col-12 col-sm-6 col-lg-3">
-          <div class="single-team-member fadeInUp" data-wow-delay="0.2s">
+          <div class="single-team-member fadeInUp">
              <div class="team-member-thumb">
-                <p class="g-text">{{ content['#view'].field['field_profile_photo'].content }}</p>
+                <p class="g-text"><img src="{{ file_url(row._entity.field_profile_photo.entity.field_media_image.entity.uri.value) }}"/></p>
             </div>
             <!-- Team Info -->
             <div class="team-info">
