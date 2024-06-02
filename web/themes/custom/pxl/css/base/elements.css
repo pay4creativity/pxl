@@ -148,7 +148,7 @@ ol {
     width: 1280px;
     margin: 0 auto;
 }
-.field--name-body {
+.node__content .field--name-body {
     padding: 2rem 8rem;
     text-align: center;
 }
