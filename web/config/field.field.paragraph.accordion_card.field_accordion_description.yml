@@ -1,0 +1,24 @@
+uuid: b26a2cd3-bf28-4da6-a1e3-5edf48aa2e8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.accordion_card
+  module:
+    - text
+id: paragraph.accordion_card.field_accordion_description
+field_name: field_accordion_description
+entity_type: paragraph
+bundle: accordion_card
+label: 'Accordion Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

@@ -10,8 +10,8 @@ _core:
   default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
 id: pxl_page_title
 theme: pxl
-region: content
-weight: -5
+region: title
+weight: -9
 provider: null
 plugin: page_title_block
 settings:

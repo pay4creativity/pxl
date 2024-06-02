@@ -1,0 +1,23 @@
+uuid: f4b14e90-335d-4cbe-8b3b-6b1a1a14e234
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cards_in_a_row
+    - paragraphs.paragraphs_type.3_column_layout_component
+id: paragraph.3_column_layout_component.field_cards_in_a_row
+field_name: field_cards_in_a_row
+entity_type: paragraph
+bundle: 3_column_layout_component
+label: 'Cards in a row'
+description: 'Number of cards to display in a row.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

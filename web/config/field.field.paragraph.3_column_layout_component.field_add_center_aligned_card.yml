@@ -1,0 +1,62 @@
+uuid: f031b5e2-64b1-4715-adaa-49f9e8e9e9a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_add_center_aligned_card
+    - paragraphs.paragraphs_type.3_column_layout_component
+    - paragraphs.paragraphs_type.centered_text_card
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 0
+id: paragraph.3_column_layout_component.field_add_center_aligned_card
+field_name: field_add_center_aligned_card
+entity_type: paragraph
+bundle: 3_column_layout_component
+label: 'Add center aligned card'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      centered_text_card: centered_text_card
+    negate: 0
+    target_bundles_drag_drop:
+      3_column_layout_component:
+        weight: 12
+        enabled: false
+      card_grid_2x2:
+        weight: 13
+        enabled: false
+      card_with_pointers:
+        weight: 14
+        enabled: false
+      case_study:
+        weight: 15
+        enabled: false
+      centered_text_card:
+        weight: 11
+        enabled: true
+      component_with_vertical_cards:
+        weight: 16
+        enabled: false
+      landing_page_banner:
+        weight: 17
+        enabled: false
+      simple_card:
+        weight: 18
+        enabled: false
+      text_comp:
+        weight: 19
+        enabled: false
+      vertical_cards:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

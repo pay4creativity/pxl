@@ -1,0 +1,19 @@
+uuid: 18b6865d-1117-4c40-b6fe-47b1af809549
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.centered_text_card
+id: paragraph.centered_text_card.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: centered_text_card
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,68 @@
+uuid: 40cdb3f0-9d83-4c95-b204-2e974d7887b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion_component.field_accordion_card
+    - field.field.paragraph.accordion_component.field_component_image
+    - field.field.paragraph.accordion_component.field_description
+    - field.field.paragraph.accordion_component.field_section_heading
+    - field.field.paragraph.accordion_component.field_title
+    - paragraphs.paragraphs_type.accordion_component
+  module:
+    - paragraphs_jquery_ui_accordion
+    - text
+id: paragraph.accordion_component.default
+targetEntityType: paragraph
+bundle: accordion_component
+mode: default
+content:
+  field_accordion_card:
+    type: paragraphs_jquery_ui_accordion_formatter
+    label: hidden
+    settings:
+      bundle: accordion_card
+      title: field_accordion_title
+      content: field_accordion_description
+      active: 1
+      autoscroll: false
+      autoscroll_offset: ''
+      autoscroll_offset_toolbar: false
+      view_mode: default
+      simple_id: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_component_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_section_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

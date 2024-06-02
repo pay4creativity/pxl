@@ -1,9 +1,9 @@
-uuid: d87aa39d-29d3-44b3-b17a-9012190b9cca
+uuid: 3631c421-901a-46dc-b4b1-83b1a4a1a1ad
 langcode: en
 status: true
 dependencies: {  }
-id: component_with_vertical_cards
-label: 'Number card component'
+id: centered_text_card
+label: 'Centered text card'
 icon_uuid: null
 icon_default: null
 description: ''

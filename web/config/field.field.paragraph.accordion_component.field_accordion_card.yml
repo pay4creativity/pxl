@@ -1,0 +1,71 @@
+uuid: 18a607e8-0d8b-4e77-a804-3d5903bf907f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_card
+    - paragraphs.paragraphs_type.accordion_card
+    - paragraphs.paragraphs_type.accordion_component
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 1
+id: paragraph.accordion_component.field_accordion_card
+field_name: field_accordion_card
+entity_type: paragraph
+bundle: accordion_component
+label: 'Accordion card'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordion_card: accordion_card
+    negate: 0
+    target_bundles_drag_drop:
+      3_column_layout_component:
+        weight: 15
+        enabled: false
+      accordion:
+        weight: 16
+        enabled: false
+      accordion_card:
+        weight: 17
+        enabled: true
+      accordion_component:
+        weight: 14
+        enabled: false
+      card_grid_2x2:
+        weight: 18
+        enabled: false
+      card_with_pointers:
+        weight: 19
+        enabled: false
+      case_study:
+        weight: 20
+        enabled: false
+      centered_text_card:
+        weight: 21
+        enabled: false
+      component_with_vertical_cards:
+        weight: 22
+        enabled: false
+      landing_page_banner:
+        weight: 23
+        enabled: false
+      simple_card:
+        weight: 24
+        enabled: false
+      text_comp:
+        weight: 25
+        enabled: false
+      vertical_cards:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.card_grid_2x2.field_add_horizontal_cards
-    - field.field.paragraph.card_grid_2x2.field_card_display_mode
+    - field.field.paragraph.card_grid_2x2.field_cards_in_a_row
     - field.field.paragraph.card_grid_2x2.field_section_description
     - field.field.paragraph.card_grid_2x2.field_section_heading
     - field.field.paragraph.card_grid_2x2.field_section_logo_image
@@ -12,7 +12,6 @@ dependencies:
     - paragraphs.paragraphs_type.card_grid_2x2
   module:
     - entity_reference_revisions
-    - options
     - text
 id: paragraph.card_grid_2x2.default
 targetEntityType: paragraph
@@ -28,10 +27,12 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
-  field_card_display_mode:
-    type: list_default
+  field_cards_in_a_row:
+    type: number_integer
     label: above
-    settings: {  }
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
     weight: 5
     region: content

@@ -1,0 +1,24 @@
+uuid: 993fe296-541e-43aa-a16f-c96250b3b075
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.centered_text_card
+  module:
+    - text
+id: paragraph.centered_text_card.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: centered_text_card
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

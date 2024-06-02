@@ -1,9 +1,9 @@
-uuid: d87aa39d-29d3-44b3-b17a-9012190b9cca
+uuid: 5b2a51eb-f439-4b30-ae84-d7bc830e4761
 langcode: en
 status: true
 dependencies: {  }
-id: component_with_vertical_cards
-label: 'Number card component'
+id: 3_column_layout_component
+label: 'Component with center aligned cards'
 icon_uuid: null
 icon_default: null
 description: ''

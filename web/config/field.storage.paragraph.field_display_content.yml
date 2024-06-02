@@ -1,22 +1,22 @@
-uuid: 53dcc7ec-07b4-4592-9fb2-a0b93d005ae0
+uuid: 207d1545-7510-49bd-a34e-45fd8204ca0e
 langcode: en
 status: true
 dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.field_card_display_mode
-field_name: field_card_display_mode
+id: paragraph.field_display_content
+field_name: field_display_content
 entity_type: paragraph
 type: list_string
 settings:
   allowed_values:
     -
-      value: 2_column_layout
-      label: '2 column layout'
+      value: center_aligned
+      label: 'Center aligned'
     -
-      value: 4_column_layout
-      label: '4 column layout'
+      value: image_left
+      label: 'Image Left'
   allowed_values_function: ''
 module: options
 locked: false

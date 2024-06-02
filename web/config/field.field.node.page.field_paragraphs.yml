@@ -1,0 +1,83 @@
+uuid: d38b27c3-565e-4eed-b963-4c4832d1e4f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.page
+    - paragraphs.paragraphs_type.3_column_layout_component
+    - paragraphs.paragraphs_type.accordion_component
+    - paragraphs.paragraphs_type.card_grid_2x2
+    - paragraphs.paragraphs_type.card_with_pointers
+    - paragraphs.paragraphs_type.case_study
+    - paragraphs.paragraphs_type.component_with_vertical_cards
+    - paragraphs.paragraphs_type.text_comp
+  module:
+    - entity_reference_revisions
+    - paragraph_blocks
+third_party_settings:
+  paragraph_blocks:
+    status: 1
+id: node.page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: page
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_grid_2x2: card_grid_2x2
+      3_column_layout_component: 3_column_layout_component
+      card_with_pointers: card_with_pointers
+      case_study: case_study
+      component_with_vertical_cards: component_with_vertical_cards
+      accordion_component: accordion_component
+      text_comp: text_comp
+    negate: 0
+    target_bundles_drag_drop:
+      3_column_layout_component:
+        weight: 10
+        enabled: true
+      accordion:
+        weight: 16
+        enabled: false
+      accordion_card:
+        weight: 17
+        enabled: false
+      accordion_component:
+        weight: 14
+        enabled: true
+      card_grid_2x2:
+        weight: 9
+        enabled: true
+      card_with_pointers:
+        weight: 10
+        enabled: true
+      case_study:
+        weight: 11
+        enabled: true
+      centered_text_card:
+        weight: 21
+        enabled: false
+      component_with_vertical_cards:
+        weight: 12
+        enabled: true
+      landing_page_banner:
+        weight: 13
+        enabled: false
+      simple_card:
+        weight: 14
+        enabled: false
+      text_comp:
+        weight: 15
+        enabled: true
+      vertical_cards:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

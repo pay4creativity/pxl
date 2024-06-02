@@ -11,7 +11,7 @@ _core:
 id: pxl_help
 theme: pxl
 region: content
-weight: -6
+weight: -9
 provider: null
 plugin: help_block
 settings:

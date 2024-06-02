@@ -1,9 +1,9 @@
-uuid: d87aa39d-29d3-44b3-b17a-9012190b9cca
+uuid: 0217f1d1-5187-4c64-815e-bde1a402ce88
 langcode: en
 status: true
 dependencies: {  }
-id: component_with_vertical_cards
-label: 'Number card component'
+id: accordion_component
+label: 'Accordion component'
 icon_uuid: null
 icon_default: null
 description: ''

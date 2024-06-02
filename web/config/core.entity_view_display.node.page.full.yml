@@ -1,9 +1,9 @@
-uuid: 786e141e-dde4-4282-9cb9-c2f448aa3c56
+uuid: 0a733390-46a7-47a3-8698-860df8268051
 langcode: en
 status: false
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.full
     - field.field.node.page.body
     - field.field.node.page.field_paragraphs
     - field.field.node.page.field_tagline
@@ -17,17 +17,16 @@ third_party_settings:
     enabled: false
     allow_custom: false
 _core:
-  default_config_hash: 8BgdRtLbtQ0F__o0FHSH0Mx5fvXOra9tfT1GmNKbRYw
-id: node.page.teaser
+  default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
+id: node.page.full
 targetEntityType: node
 bundle: page
-mode: teaser
+mode: full
 content:
   body:
-    type: text_summary_or_trimmed
+    type: text_default
     label: hidden
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
@@ -39,3 +38,4 @@ content:
 hidden:
   field_paragraphs: true
   field_tagline: true
+  layout_builder__layout: true

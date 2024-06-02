@@ -1,0 +1,23 @@
+uuid: 97f89bcd-8371-4cee-92ad-877ce12b3f5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_content
+    - paragraphs.paragraphs_type.3_column_layout_component
+  module:
+    - options
+id: paragraph.3_column_layout_component.field_display_content
+field_name: field_display_content
+entity_type: paragraph
+bundle: 3_column_layout_component
+label: 'Display content'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: image_left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

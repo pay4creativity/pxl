@@ -1,4 +1,4 @@
-uuid: 294c1632-5d8d-42a5-b476-60adb757666f
+uuid: 72d39084-42a0-430a-8315-d2b8448fac10
 langcode: en
 status: true
 dependencies:
@@ -6,15 +6,15 @@ dependencies:
     - system
   theme:
     - pxl
-id: pxl_mainpagecontent
+id: pxl_breadcrumbs
 theme: pxl
-region: content
-weight: -8
+region: breadcrumb
+weight: 0
 provider: null
-plugin: system_main_block
+plugin: system_breadcrumb_block
 settings:
-  id: system_main_block
-  label: 'Main page content'
+  id: system_breadcrumb_block
+  label: Breadcrumbs
   label_display: '0'
   provider: system
 visibility: {  }
