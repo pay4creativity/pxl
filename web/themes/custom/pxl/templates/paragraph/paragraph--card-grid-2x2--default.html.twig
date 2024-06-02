@@ -48,7 +48,12 @@
 %}
 {% block paragraph %}
 {% set img_url = paragraph.field_section_logo_image.entity.field_media_image.entity.uri.value %}
-{% set noc = 12/paragraph.field_cards_in_a_row.value %}
+{# {% if paragraph.field_cards_in_a_row.value matches '/^\\d+$/' %} #}
+{% if paragraph.field_cards_in_a_row.value is not iterable and  paragraph.field_cards_in_a_row.value matches '/^\\d+$/'%}
+{% set noc = 12 / paragraph.field_cards_in_a_row.value %}
+{% else %}
+{% set noc = 6 %}
+{% endif %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
      <section class="darky how section-padding-100-70">
