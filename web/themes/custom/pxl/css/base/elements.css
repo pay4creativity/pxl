@@ -1,3 +1,4 @@
+@import '../../fonts/';
 * {
     margin: 0;
     padding: 0;
@@ -73,6 +74,9 @@ ol {
     padding: 0;
 }
 
+.darker .faq-timeline-area {
+    margin-top: 6rem;
+}
 .section-padding-100-85 {
     padding-top: 100px;
     padding-bottom: 85px;
@@ -138,4 +142,13 @@ ol {
 
 .footer-logo img {
     width: 200px;
+}
+
+.node__content {
+    width: 1280px;
+    margin: 0 auto;
+}
+.field--name-body {
+    padding: 2rem 8rem;
+    text-align: center;
 }

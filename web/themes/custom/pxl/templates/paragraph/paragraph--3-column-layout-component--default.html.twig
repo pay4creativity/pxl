@@ -60,13 +60,13 @@
           {% if content.field_section_heading %}
             <h4>{{ content.field_section_heading }}</h4>
           {% endif %}
-          <h2> {{ content.field_section_title }} </h2>
-          {{ content.field_section_description.0['#text']|raw }}
+          <h2> {{ content.field_card_title }} </h2>
+          {{ content.field_description.0['#text']|raw }}
         </div>
         <div class="row">
-         {% for key,value in content.field_add_horizontal_cards['#items'] %}
+         {% for key,value in content.field_add_center_aligned_card['#items'] %}
           <div class="col-12 col-md-6 col-lg-{{ noc }}">
-           {{content.field_add_horizontal_cards[key]}}
+           {{content.field_add_center_aligned_card[key]}}
           </div>
          {% endfor %}
         </div>

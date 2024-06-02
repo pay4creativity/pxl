@@ -99,7 +99,7 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+    {{ content|without('field_tagline') }}
   </div>
 
 </article>

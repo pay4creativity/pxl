@@ -47,28 +47,32 @@
   ]
 %}
 {% block paragraph %}
-{% set img_url = paragraph.field_section_logo_image.entity.field_media_image.entity.uri.value %}
-{% set noc = 12/paragraph.field_cards_in_a_row.value %}
+{% set img_url = paragraph.field_component_image.entity.field_media_image.entity.uri.value %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-     <section class="darky how section-padding-100-70">
+     <section class="faq-timeline-area section-padding-100-0">
       <div class="container">
         <div class="section-heading text-center">
-          <div class="dream-dots justify-content-center wow fadeInUp" data-wow-delay="0.2s">
-            <img src="{{file_url(img_url)}}" class="mb-15"/>
-          </div>
           {% if content.field_section_heading %}
             <h4>{{ content.field_section_heading }}</h4>
           {% endif %}
-          <h2> {{ content.field_section_title }} </h2>
-          {{ content.field_section_description.0['#text']|raw }}
+          <h2> {{ content.field_title }} </h2>
+          {{ content.field_description.0['#text']|raw }}
         </div>
-        <div class="row">
-         {% for key,value in content.field_add_horizontal_cards['#items'] %}
-          <div class="col-12 col-md-6 col-lg-{{ noc }}">
-           {{content.field_add_horizontal_cards[key]}}
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-sm-12">
+            {{content.field_component_image}}
           </div>
-         {% endfor %}
+          <div class="col-12 col-lg-6 col-md-12">
+            <div class="dream-faq-area mt-s">
+               <div id="accordion">
+                {% for key,value in content.field_accordion_card['#items'] %}
+                  {{content.field_accordion_card[key]}}
+                {% endfor %}
+             </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

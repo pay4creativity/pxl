@@ -1,5 +1,8 @@
 <?php declare(strict_types = 1);
 
+
+use Drupal\file\Entity\File;
+
 /**
  * @file
  * Functions to support theming in the pxl theme.
@@ -16,12 +19,17 @@ function pxl_preprocess_html(array &$variables): void {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function pxl_preprocess_page(array &$variables): void {
-
-}
-
-/**
- * Implements hook_preprocess_HOOK() for node.html.twig.
- */
-function pxl_preprocess_node(array &$variables): void {
-
+    $Breadcrumbs_bg = theme_get_setting('breadcrumbs_background') ?? '';
+    $file = File::load($Breadcrumbs_bg[0]);
+    if (isset($file)) {
+        $file_generator = \Drupal::service('file_url_generator');
+        $image_url = $file_generator->generateAbsoluteString($file->getFileUri());
+        $variables['breadcrumbs_bg'] = $image_url;
+    }
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if (isset($node)) {
+        if ($node->hasField('field_tagline')) {
+            $variables['tagline'] = $node->field_tagline->value;
+        }
+    }
 }

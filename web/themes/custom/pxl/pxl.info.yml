@@ -6,10 +6,13 @@ package: Custom
 core_version_requirement: ^10
 libraries:
   - pxl/global
+dependencies:
+    - jquery_ui_accordion/accordion
 regions:
   header: 'Header'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
+  title: 'Page title'
   hero: Hero (full width)
   featured: 'Featured'
   breadcrumb: 'Breadcrumb'

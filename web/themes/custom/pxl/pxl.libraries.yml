@@ -3,6 +3,9 @@ global:
   js:
     js/pxl.js: {}
     js/bootstrap.min.js: {}
+    js/popper.min.js: {}
+  dependencies:
+    - jquery_ui_accordion/accordion
   css:
     base:
       css/base/elements.css: {}
@@ -22,6 +25,7 @@ global:
       css/component/tabs.css: {}
       css/component/buttons.css: {}
       css/component/hero.css: {}
+      css/component/accordion.css: {}
     layout:
       css/layout/layout.css: {}
     theme:
