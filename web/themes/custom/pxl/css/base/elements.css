@@ -1,4 +1,4 @@
-@import '../../fonts/';
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
 html {
     scroll-behavior: smooth;
 }
-body {
+html body {
     font-family: 'Poppins', sans-serif;
     background: #4834d4;
     overflow-x: hidden;
@@ -149,4 +149,8 @@ ol {
     text-align: center;
     width: 1280px;
     margin: 0 auto;
+}
+.section-padding-100-0 {
+    padding-top: 100px;
+    padding-bottom: 0;
 }

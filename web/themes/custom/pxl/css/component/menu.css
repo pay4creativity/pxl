@@ -107,3 +107,11 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
 
 .navbar-cyan .navbar-brand,
 .navbar-cyan .navbar-nav .nav-item .nav-link{color: #04d0ff}
+
+.social-icons li {
+    display: inline-block;
+    margin: 0px 8px;
+}
+.social-icons li a , .copyright-text a{
+    color: #ffbf00;
+}

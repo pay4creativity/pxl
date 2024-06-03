@@ -1,4 +1,5 @@
 <?php declare(strict_types = 1);
+use Drupal\file\Entity\File;
 
 /**
  * @file
@@ -28,4 +29,14 @@ function pxl_form_system_theme_settings_alter(array &$form, FormState $form_stat
       'file_validate_extensions' => array('jpg jpeg png svg'),
     ],
   ];
+  $form['#submit'][] = 'pxl_settings_form_submit';
+
 }
+
+function pxl_settings_form_submit(&$form, $form_state) {
+  if ($file_id = $form_state->getValue(['breadcrumbs_background', '0'])) {
+    $file = File::load($file_id);
+    $file->setPermanent();
+    $file->save();
+  }
+  }

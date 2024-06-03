@@ -6,8 +6,6 @@ package: Custom
 core_version_requirement: ^10
 libraries:
   - pxl/global
-dependencies:
-    - jquery_ui_accordion/accordion
 regions:
   header: 'Header'
   primary_menu: 'Primary menu'

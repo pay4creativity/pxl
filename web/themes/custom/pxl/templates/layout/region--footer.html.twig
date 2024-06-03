@@ -13,6 +13,14 @@
  */
 #}
 
+{%
+  set classes = [
+    'region',
+    'region--' ~ region|clean_class,
+    'layout--pass--content-medium',
+  ]
+%}
+
 {% if content %}
     {{ content }}
 {% endif %}
