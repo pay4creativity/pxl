@@ -1,0 +1,23 @@
+uuid: 064126a7-162a-4f37-9dec-7be8b6b83a81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_action
+    - paragraphs.paragraphs_type.simple_card
+  module:
+    - link
+id: paragraph.simple_card.field_card_action
+field_name: field_card_action
+entity_type: paragraph
+bundle: simple_card
+label: 'Card action'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

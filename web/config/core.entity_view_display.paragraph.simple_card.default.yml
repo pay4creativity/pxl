@@ -3,17 +3,31 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.simple_card.field_card_action
     - field.field.paragraph.simple_card.field_card_image
     - field.field.paragraph.simple_card.field_card_title
     - field.field.paragraph.simple_card.field_simple_card_description
     - paragraphs.paragraphs_type.simple_card
   module:
+    - link
     - text
 id: paragraph.simple_card.default
 targetEntityType: paragraph
 bundle: simple_card
 mode: default
 content:
+  field_card_action:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
   field_card_image:
     type: entity_reference_entity_view
     label: hidden

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_team
     - node.type.article
+    - paragraphs.paragraphs_type.team
   module:
     - entity_reference_revisions
     - paragraph_blocks
@@ -24,9 +25,19 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      team: team
     negate: 0
     target_bundles_drag_drop:
+      3_column_layout_component:
+        weight: 15
+        enabled: false
+      accordion_card:
+        weight: 16
+        enabled: false
+      accordion_component:
+        weight: 17
+        enabled: false
       card_grid_2x2:
         weight: 11
         enabled: false
@@ -36,18 +47,21 @@ settings:
       case_study:
         weight: 13
         enabled: false
+      centered_text_card:
+        weight: 21
+        enabled: false
       component_with_vertical_cards:
         weight: 14
         enabled: false
       landing_page_banner:
         weight: 15
         enabled: false
-      profile_cards:
-        weight: 10
-        enabled: true
       simple_card:
         weight: 16
         enabled: false
+      team:
+        weight: 14
+        enabled: true
       text_comp:
         weight: 17
         enabled: false

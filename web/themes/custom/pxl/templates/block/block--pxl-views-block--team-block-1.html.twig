@@ -59,15 +59,17 @@
              <div class="team-member-thumb">
                 <p class="g-text"><img src="{{ file_url(row._entity.field_profile_photo.entity.field_media_image.entity.uri.value) }}"/></p>
             </div>
+            <!-- Social Icon -->
+            <div class="team-social-icon">
+
+                <a href="{{ content['#view'].field['field_linkedin_profile_link'].value(row) }}"><i class="fa fa-linkedin"></i></a>
+            </div>
             <!-- Team Info -->
             <div class="team-info">
                 <h5 class="w-text">{{ content['#view'].field['title'].value(row) }}</h5>
                 <p class="g-text">{{ content['#view'].field['field_position'].value(row) }}</p>
             </div>
-            <!-- Social Icon -->
-            <div class="team-social-icon">
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
+
           </div>
           </div>
         {% endfor %}

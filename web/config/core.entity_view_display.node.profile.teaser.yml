@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.profile.body
+    - field.field.node.profile.field_linkedin_profile_link
     - field.field.node.profile.field_position
     - field.field.node.profile.field_profile_photo
     - node.type.profile
@@ -30,5 +31,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_linkedin_profile_link: true
   field_position: true
   field_profile_photo: true

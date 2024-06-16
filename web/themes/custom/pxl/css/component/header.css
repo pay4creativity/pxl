@@ -17,3 +17,23 @@
         background: rgb(215, 223, 239)
     }
 }
+
+.team-social-icon a {
+    font-size: 22px;
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    background: url(/themes/custom/pxl/images/diamond-shape.svg) no-repeat center center;
+    background-size: contain;
+    color: #8a55f6;
+    line-height: 70px;
+    display: inline-block;
+}
+
+.team-social-icon {
+    text-align: center;
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+}

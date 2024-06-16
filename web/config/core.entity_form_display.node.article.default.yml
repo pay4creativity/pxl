@@ -13,7 +13,6 @@ dependencies:
     - field.field.node.article.field_tags
     - field.field.node.article.field_team
     - field.field.node.article.field_text_components
-    - field.field.node.article.layout_builder__layout
     - node.type.article
   module:
     - paragraphs
@@ -233,4 +232,3 @@ content:
     third_party_settings: {  }
 hidden:
   comment: true
-  layout_builder__layout: true

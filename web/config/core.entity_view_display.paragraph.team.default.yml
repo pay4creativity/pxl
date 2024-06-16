@@ -1,0 +1,60 @@
+uuid: dce83f0d-f8d4-48e2-b823-34bc25f859a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.team.field_card_title
+    - field.field.paragraph.team.field_description
+    - field.field.paragraph.team.field_section_logo_image
+    - field.field.paragraph.team.field_section_title
+    - field.field.paragraph.team.field_select_view
+    - paragraphs.paragraphs_type.team
+  module:
+    - text
+id: paragraph.team.default
+targetEntityType: paragraph
+bundle: team
+mode: default
+content:
+  field_card_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_section_logo_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_section_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_select_view:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden: {  }

@@ -1,0 +1,23 @@
+uuid: df54e830-58ae-428d-b366-51996545e9e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_select_view
+    - paragraphs.paragraphs_type.team
+id: paragraph.team.field_select_view
+field_name: field_select_view
+entity_type: paragraph
+bundle: team
+label: 'Select view'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

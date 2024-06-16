@@ -11,6 +11,7 @@ global:
     base:
       css/base/elements.css: {}
       css/base/bootstrap.min.css: {}
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: { type: external }
     component:
       css/component/block.css: {}
       css/component/simplecard.css: {}

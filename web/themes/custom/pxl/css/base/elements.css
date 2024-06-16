@@ -43,10 +43,10 @@ html body {
     font-weight: 500;
 }
 
-a,
-a:hover,
-a:focus,
-a:active {
+.darky a,
+.darky a:hover,
+.darky a:focus,
+.darky a:active {
     text-decoration: none;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
@@ -127,7 +127,7 @@ ol {
 .footer-content-area {
     padding: 140px 0 80px;
     margin-top: 0px;
-    background: url(../img/footer-bg.png) top left no-repeat;
+    background: url(/themes/custom/pxl/images/footer-bg.png) top left no-repeat;
     background-size: cover;
 }
 .contact_info_area .contact_info h5 {

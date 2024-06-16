@@ -38,26 +38,43 @@
  * @ingroup themeable
  */
 #}
-
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
 {% block paragraph %}
-{% set img_url = paragraph.field_card_image.entity.field_media_image.entity.uri.value %}
+{% set img_url = paragraph.field_section_logo_image.entity.field_media_image.entity.uri.value %}
+{# {% if paragraph.field_cards_in_a_row.value matches '/^\\d+$/' %} #}
+  <div{{ attributes.addClass(classes) }}>
     {% block content %}
-        {% if content.field_card_action.0['#url'] %}
-            <a href="{{ content.field_card_action.0['#url'] }}">
-        {% endif %}
-          <!-- Content -->
-          <div class='service_single_content grediant-borders box-shadow text-left wow fadeInUp' data-wow-delay='0.2s'>
-              <!-- Icon -->
-              <div class="service_icon v2">
-                  <img draggable="false" src="{{file_url(img_url)}}" class="white-icon" alt="">
-              </div>
-              <div class="service_content">
-                  <h6>{{ content.field_card_title }}</h6>
-                  {{ content.field_simple_card_description }}
-              </div>
+     <section class="darky how section-padding-100-70">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-heading text-center">
+            <div class="dream-dots justify-content-center wow fadeInUp" data-wow-delay="0.2s">
+              <img src="{{file_url(img_url)}}" class="mb-15"/>
+            </div>
+            {% if content.field_section_title %}
+              <h4>{{ content.field_section_title }}</h4>
+            {% endif %}
+             <h2> {{ content.field_card_title }} </h2>
+              {{ content.field_description.0['#text']|raw }}
+            </div>
           </div>
-        {% if content.field_card_action.0['#url'] %}
-            </a>
-        {% endif %}
+        </div>
+        <div class="row">
+        {{ dump(paragraph.field_select_view)}}
+
+         {{ paragraph.field_select_view['#items']}}
+
+        </div>
+      </div>
+    </section>
     {% endblock %}
+  </div>
 {% endblock paragraph %}

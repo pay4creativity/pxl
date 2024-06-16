@@ -1,0 +1,64 @@
+uuid: ecfdecbf-3749-47ba-b465-11797a519bb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.team.field_card_title
+    - field.field.paragraph.team.field_description
+    - field.field.paragraph.team.field_section_logo_image
+    - field.field.paragraph.team.field_section_title
+    - field.field.paragraph.team.field_select_view
+    - paragraphs.paragraphs_type.team
+  module:
+    - media_library
+    - text
+id: paragraph.team.default
+targetEntityType: paragraph
+bundle: team
+mode: default
+content:
+  field_card_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_logo_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_section_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_select_view:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  admin_title: true
+  created: true
+  status: true

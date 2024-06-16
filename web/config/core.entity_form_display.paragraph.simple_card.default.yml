@@ -3,11 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.simple_card.field_card_action
     - field.field.paragraph.simple_card.field_card_image
     - field.field.paragraph.simple_card.field_card_title
     - field.field.paragraph.simple_card.field_simple_card_description
     - paragraphs.paragraphs_type.simple_card
   module:
+    - link
     - media_library
     - text
 id: paragraph.simple_card.default
@@ -22,6 +24,14 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_card_action:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_card_image:
     type: media_library_widget

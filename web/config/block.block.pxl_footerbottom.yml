@@ -1,0 +1,25 @@
+uuid: 61b00391-ce12-4317-8eb5-ab3742d81e14
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:669d9417-20aa-46ad-a725-9a65552bfa92'
+  module:
+    - block_content
+  theme:
+    - pxl
+id: pxl_footerbottom
+theme: pxl
+region: footer
+weight: -9
+provider: null
+plugin: 'block_content:669d9417-20aa-46ad-a725-9a65552bfa92'
+settings:
+  id: 'block_content:669d9417-20aa-46ad-a725-9a65552bfa92'
+  label: 'Footer bottom'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
