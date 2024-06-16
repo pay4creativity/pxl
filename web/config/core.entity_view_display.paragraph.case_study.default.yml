@@ -64,10 +64,9 @@ content:
     weight: 1
     region: content
   field_simple_card_description:
-    type: text_trimmed
+    type: text_default
     label: hidden
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content
