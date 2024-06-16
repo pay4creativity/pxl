@@ -84,7 +84,9 @@
                   </div>
                   <h2 class="fadeInUp" data-wow-delay="0.3s"> {{ content.field_card_title.0['#context']['value'] }}</h2>
                   {{ content.field_simple_card_description }}
-                  <a class='btn pxl-btn mr-3' href={{ content.field_cta.0['#url'] }}>{{ content.field_cta.0['#title'] }}</a>
+                  {% if content.field_cta.0['#title'] %}
+                    <a class='btn pxl-btn mr-3' href={{ content.field_cta.0['#url'] }}>{{ content.field_cta.0['#title'] }}</a>
+                  {% endif %}
               </div>
           </div>
             <div class="col-12 col-lg-6 offset-lg-0 col-md-12">
