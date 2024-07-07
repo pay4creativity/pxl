@@ -55,12 +55,13 @@
         <div class="row align-items-center">
 
           {% if content.field_display_type.0['#markup'] == 'Type 1' %}
-          <div class="col-12 col-lg-4 offset-lg-0 col-md-6">
-            <div class="welcome-meter">
-             <img src="{{file_url(img_url)}}" class="mb-15"/>
-            </div>
-
-          </div>
+            {% if content.field_image_position.0['#markup'] == 'Left' %}
+              <div class="col-12 col-lg-4 offset-lg-0 col-md-6">
+                <div class="welcome-meter">
+                  <img src="{{file_url(img_url)}}" class="mb-15"/>
+                </div>
+              </div>
+            {% endif %}
            <div class="col-12 col-lg-4 offset-lg-0 mt-s">
               <div class="who-we-contant">
                   <div class="dream-dots text-left fadeInUp" data-wow-delay="0.2s">
@@ -70,13 +71,26 @@
               </div>
           </div>
           <div class="col-12 col-lg-4 offset-lg-0 mt-s">
-              <div class="who-we-contant left-bar">
-                  {{ content.field_simple_card_description }}
-                  <a class='btn pxl-btn mr-3' href={{ content.field_cta.0['#url'] }}>{{ content.field_cta.0['#title'] }}</a>
+            <div class="who-we-contant left-bar">
+                {{ content.field_simple_card_description }}
+                <a class='btn pxl-btn mr-3' href={{ content.field_cta.0['#url'] }}>{{ content.field_cta.0['#title'] }}</a>
+            </div>
+          </div>
+          {% if content.field_image_position.0['#markup'] == 'Right' %}
+              <div class="col-12 col-lg-4 offset-lg-0 col-md-6">
+                <div class="welcome-meter">
+                  <img src="{{file_url(img_url)}}" class="mb-15"/>
+                </div>
+              </div>
+            {% endif %}
+          {% else %}
+          {% if content.field_image_position.0['#markup'] == 'Left' %}
+            <div class="col-12 col-lg-6 offset-lg-0 col-md-12">
+              <div class="welcome-meter">
+                <img src="{{file_url(img_url)}}" draggable="false" class="floating"/>
               </div>
             </div>
-
-          {% else %}
+          {% endif %}
           <div class="col-12 col-lg-6 offset-lg-0 mt-s">
               <div class="who-we-contant">
                   <div class="dream-dots text-left fadeInUp" data-wow-delay="0.2s">
@@ -89,12 +103,13 @@
                   {% endif %}
               </div>
           </div>
+          {% if content.field_image_position.0['#markup'] == 'Right' %}
             <div class="col-12 col-lg-6 offset-lg-0 col-md-12">
-            <div class="welcome-meter">
-             <img src="{{file_url(img_url)}}" draggable="false" class="floating"/>
+              <div class="welcome-meter">
+                <img src="{{file_url(img_url)}}" draggable="false" class="floating"/>
+              </div>
             </div>
-
-          </div>
+          {% endif %}
         {% endif %}
 
         </div>

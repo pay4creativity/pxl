@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.case_study.field_card_title
     - field.field.paragraph.case_study.field_cta
     - field.field.paragraph.case_study.field_display_type
+    - field.field.paragraph.case_study.field_image_position
     - field.field.paragraph.case_study.field_section_heading
     - field.field.paragraph.case_study.field_simple_card_description
     - paragraphs.paragraphs_type.case_study
@@ -54,6 +55,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_image_position:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_section_heading:
     type: string

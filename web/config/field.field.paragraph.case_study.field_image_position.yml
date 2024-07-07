@@ -1,0 +1,23 @@
+uuid: 2e24a656-eb46-4ca6-a20d-aa1129e2ddf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_position
+    - paragraphs.paragraphs_type.case_study
+  module:
+    - options
+id: paragraph.case_study.field_image_position
+field_name: field_image_position
+entity_type: paragraph
+bundle: case_study
+label: 'Image position'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string
