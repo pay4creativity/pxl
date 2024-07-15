@@ -88,6 +88,11 @@
   {% endif %}
     <div id="main-wrapper">
       <div id="main">
+       <div class="top-content-wrapper section-padding-100-85">
+          {% if page.content_top %}
+            {{ page.content_top }}
+          {% endif %}
+        </div>
         <div class="main-content-wrapper">
           {% if page.highlighted or page.breadcrumb %}
             {{ page.highlighted }}

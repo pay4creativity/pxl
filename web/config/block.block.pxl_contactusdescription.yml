@@ -1,0 +1,30 @@
+uuid: 1e91cc3a-f249-4c3e-9431-e18c53d15398
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d3e4dc26-032a-44c3-8fc4-fb267bc3a343'
+  module:
+    - block_content
+    - system
+  theme:
+    - pxl
+id: pxl_contactusdescription
+theme: pxl
+region: content_top
+weight: -10
+provider: null
+plugin: 'block_content:d3e4dc26-032a-44c3-8fc4-fb267bc3a343'
+settings:
+  id: 'block_content:d3e4dc26-032a-44c3-8fc4-fb267bc3a343'
+  label: 'Contact us description'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/contact/*'

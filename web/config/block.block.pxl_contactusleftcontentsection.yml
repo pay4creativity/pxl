@@ -1,0 +1,30 @@
+uuid: cd6d4a65-606e-4237-ad2b-11ce556afad7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:214654fa-9b0c-4b44-8942-5b38dfb0fee0'
+  module:
+    - block_content
+    - system
+  theme:
+    - pxl
+id: pxl_contactusleftcontentsection
+theme: pxl
+region: content
+weight: -9
+provider: null
+plugin: 'block_content:214654fa-9b0c-4b44-8942-5b38dfb0fee0'
+settings:
+  id: 'block_content:214654fa-9b0c-4b44-8942-5b38dfb0fee0'
+  label: 'Contact us Left content section'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/contact/*'

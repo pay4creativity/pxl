@@ -1,0 +1,93 @@
+.contact-form {
+    padding: 10px 30px;
+}
+.group {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+}
+
+.contact_us_area #block-pxl-mainpagecontent{
+    width: 66%;
+    display: grid;
+}
+input:required, textarea:required {
+    box-shadow: none !important;
+}
+.form-textarea-wrapper textarea#edit-message-0-value {
+    height: 130px;
+}
+.group input, .group textarea {
+    font-size: 12px;
+    font-style: italic;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.services-block-four {
+    position: relative;
+}
+
+.services-block-four .inner-box {
+    position: relative;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 80px;
+    background: #1E2738;
+}
+
+.icon-font-box {
+    font-size: 30px;
+    color: #fff;
+    background: linear-gradient(289deg, #ffbf00, #f58820 50%, #ff9600);
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+.services-block-four .inner-box h3 {
+    position: relative;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.services-block-four .inner-box .text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.button--primary {
+    position: relative;
+    z-index: 1;
+    min-width: 160px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    color: #fff;
+    box-shadow: 0 3ox 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-image: linear-gradient(289deg, #ffbf00, #f58820 50%, #ff9600);
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+}

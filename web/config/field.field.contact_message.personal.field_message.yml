@@ -1,0 +1,24 @@
+uuid: f970d348-e756-4ec2-9d7c-688128f51c12
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.personal
+    - field.storage.contact_message.field_message
+    - filter.format.full_html
+  module:
+    - text
+id: contact_message.personal.field_message
+field_name: field_message
+entity_type: contact_message
+bundle: personal
+label: Message
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

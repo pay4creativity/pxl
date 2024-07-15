@@ -46,7 +46,7 @@
  */
 #}
 
-<div id="page-wrapper">
+<div id="page-wrapper" class="contact_us_area section-padding-100-70">
   <div id="page">
 
     {% if page.header or page.primary_menu or page.secondary_menu %}
@@ -69,30 +69,49 @@
           </div>
       </header>
     {% endif %}
-  {{ page.hero }}
-    <div id="main-wrapper">
-      <div id="main">
-      <div class="top-content-wrapper section-padding-100-85">
-          {% if page.content_top %}
-            {{ page.content_top }}
-          {% endif %}
+  {% if page.title %}
+    <div class="breadcumb-area" style="background-image: url({{ breadcrumbs_bg }})">
+      <div class="breadcumb-content">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <div class="breadcumb--con text-center">
+                {{ page.title }}
+                <p> {{ tagline }} </p>
+                {{ page.breadcrumb }}
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="main-content-wrapper">
-          {% if page.highlighted or page.breadcrumb %}
-            {{ page.highlighted }}
-            {{ page.breadcrumb }}
-          {% endif %}
-          <a id="main-content" tabindex="-1"></a>
-              <main role="main">
-                {{ page.content }}
-              </main>
-        </div>
-        <div class="bottom-content-wrapper section-padding-100-85">
-          {% if page.content_bottom %}
-            {{ page.content_bottom }}
-          {% endif %}
-        </div>
+      </div>
+    </div>
+  {% endif %}
+    <div id="main-wrapper" class="contact_us_area section-padding-100-70">
+      <div class="container">
+        <div id="main">
+          <div class="section-heading text-center">
+            {% if page.content_top %}
+              {{ page.content_top }}
+            {% endif %}
+          </div>
+          <div class="main-content-wrapper">
+            {% if page.highlighted or page.breadcrumb %}
+              {{ page.highlighted }}
+            {% endif %}
+            <a id="main-content" tabindex="-1"></a>
 
+
+                    {{ page.content }}
+
+
+          </div>
+          <div class="bottom-content-wrapper section-padding-100-85">
+            {% if page.content_bottom %}
+              {{ page.content_bottom }}
+            {% endif %}
+          </div>
+
+        </div>
       </div>
     </div>
 

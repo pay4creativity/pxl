@@ -1,0 +1,19 @@
+uuid: 00431815-cadb-48cb-b93d-c7c61a84b1cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.personal
+    - field.storage.contact_message.field_subject
+id: contact_message.personal.field_subject
+field_name: field_subject
+entity_type: contact_message
+bundle: personal
+label: Subject
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
