@@ -78,7 +78,9 @@
               <div class="breadcumb--con text-center">
                 {{ page.title }}
                 <p> {{ tagline }} </p>
-                {{ page.breadcrumb }}
+                {% if page.breadcrumb %}
+                  {{ page.breadcrumb }}
+                {% endif %}
               </div>
             </div>
           </div>
@@ -88,13 +90,13 @@
   {% endif %}
     <div id="main-wrapper">
       <div id="main">
-       <div class="top-content-wrapper section-padding-100-85">
-          {% if page.content_top %}
+        {% if page.content_top %}
+          <div class="top-content-wrapper section-padding-100-85">
             {{ page.content_top }}
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
         <div class="main-content-wrapper">
-          {% if page.highlighted or page.breadcrumb %}
+          {% if page.highlighted %}
             {{ page.highlighted }}
           {% endif %}
           <a id="main-content" tabindex="-1"></a>

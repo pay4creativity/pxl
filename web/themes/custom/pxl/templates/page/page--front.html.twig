@@ -72,16 +72,15 @@
   {{ page.hero }}
     <div id="main-wrapper">
       <div id="main">
-      <div class="top-content-wrapper section-padding-100-85">
           {% if page.content_top %}
+          <div class="top-content-wrapper section-padding-100-85">
             {{ page.content_top }}
+          </div>
           {% endif %}
-        </div>
         <div class="main-content-wrapper">
-          {% if page.highlighted or page.breadcrumb %}
-            {{ page.highlighted }}
-            {{ page.breadcrumb }}
-          {% endif %}
+            {% if page.highlighted %}
+              {{ page.highlighted }}
+            {% endif %}
           <a id="main-content" tabindex="-1"></a>
               <main role="main">
                 {{ page.content }}
