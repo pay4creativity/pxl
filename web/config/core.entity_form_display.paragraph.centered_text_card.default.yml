@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.centered_text_card.field_card_image
+    - field.field.paragraph.centered_text_card.field_cta
     - field.field.paragraph.centered_text_card.field_description
     - field.field.paragraph.centered_text_card.field_title
     - paragraphs.paragraphs_type.centered_text_card
   module:
+    - link
     - media_library
     - text
 id: paragraph.centered_text_card.default
@@ -29,6 +31,14 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_cta:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_description:
     type: text_textarea

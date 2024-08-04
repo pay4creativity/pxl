@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.centered_text_card.field_card_image
+    - field.field.paragraph.centered_text_card.field_cta
     - field.field.paragraph.centered_text_card.field_description
     - field.field.paragraph.centered_text_card.field_title
     - paragraphs.paragraphs_type.centered_text_card
   module:
+    - link
     - text
 id: paragraph.centered_text_card.default
 targetEntityType: paragraph
@@ -22,6 +24,18 @@ content:
       link: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
     region: content
   field_description:
     type: text_default

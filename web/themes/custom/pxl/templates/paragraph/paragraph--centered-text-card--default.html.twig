@@ -43,6 +43,9 @@
 {% set img_url = paragraph.field_card_image.entity.field_media_image.entity.uri.value %}
     {% block content %}
           <!-- Content -->
+          {% if content.field_cta.0['#url'] %}
+            <a href="{{ content.field_cta.0['#url'] }}">
+          {% endif %}
           <div class='service_single_content v3 box-shadow text-center mb-100 wow fadeInUp' data-wow-delay='0.2s'>
               <!-- Icon -->
               <div class="service_icon">
@@ -53,6 +56,8 @@
                   {{ content.field_description.0['#text']|raw  }}
               </div>
           </div>
-
+          {% if content.field_cta.0['#url'] %}
+            </a>
+          {% endif %}
     {% endblock %}
 {% endblock paragraph %}
