@@ -1,9 +1,9 @@
-uuid: cd6d4a65-606e-4237-ad2b-11ce556afad7
+uuid: 8726d454-e894-4ccf-a85f-e6b5bde5a28f
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:214654fa-9b0c-4b44-8942-5b38dfb0fee0'
+    - 'block_content:basic:963099df-d50f-4d77-b1b6-3dfd22e8c4d9'
   module:
     - block_content
     - system
@@ -14,9 +14,9 @@ theme: pxl
 region: content
 weight: -9
 provider: null
-plugin: 'block_content:214654fa-9b0c-4b44-8942-5b38dfb0fee0'
+plugin: 'block_content:963099df-d50f-4d77-b1b6-3dfd22e8c4d9'
 settings:
-  id: 'block_content:214654fa-9b0c-4b44-8942-5b38dfb0fee0'
+  id: 'block_content:963099df-d50f-4d77-b1b6-3dfd22e8c4d9'
   label: 'Contact us Left content section'
   label_display: '0'
   provider: block_content
