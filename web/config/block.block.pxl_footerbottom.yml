@@ -1,9 +1,9 @@
-uuid: 61b00391-ce12-4317-8eb5-ab3742d81e14
+uuid: eb833bb6-d779-44ac-b82d-cfc759127bea
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:669d9417-20aa-46ad-a725-9a65552bfa92'
+    - 'block_content:basic:84e939f4-9f49-4968-862c-c9f3bb3bd1de'
   module:
     - block_content
   theme:
@@ -11,11 +11,11 @@ dependencies:
 id: pxl_footerbottom
 theme: pxl
 region: footer
-weight: -9
+weight: -10
 provider: null
-plugin: 'block_content:669d9417-20aa-46ad-a725-9a65552bfa92'
+plugin: 'block_content:84e939f4-9f49-4968-862c-c9f3bb3bd1de'
 settings:
-  id: 'block_content:669d9417-20aa-46ad-a725-9a65552bfa92'
+  id: 'block_content:84e939f4-9f49-4968-862c-c9f3bb3bd1de'
   label: 'Footer bottom'
   label_display: '0'
   provider: block_content
