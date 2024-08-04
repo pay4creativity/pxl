@@ -74,6 +74,11 @@ ol {
     padding: 0;
 }
 
+ul.custom-list-syle li {
+    list-style: inside;
+    color: #efefef;
+    padding: 10px;
+}
 .darker .faq-timeline-area {
     margin-top: 6rem;
 }
