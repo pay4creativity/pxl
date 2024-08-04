@@ -60,9 +60,14 @@
           {{ content.field_description.0['#text']|raw }}
         </div>
         <div class="row align-items-center">
+        {% if content.field_component_image %}
           <div class="col-12 col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-sm-12">
             {{content.field_component_image}}
           </div>
+           <div class="col-12 col-lg-6 col-md-12">
+        {% else %}
+         <div class="col-12 col-lg-12 col-md-12">
+        {% endif %}
           <div class="col-12 col-lg-6 col-md-12">
             <div class="dream-faq-area mt-s">
                <div id="accordion">

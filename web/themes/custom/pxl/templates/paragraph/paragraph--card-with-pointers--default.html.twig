@@ -54,7 +54,11 @@
         <div class"image-bg" style="background-image: url({{file_url(img_url)}})">
         <div class="container has-shadow">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-6">
+            {% if content.field_component_image['#items'] %}
+              <div class="col-12 col-lg-6">
+            {% else %}
+              <div class="col-12 col-lg-12">
+            {%  endif %}
                     <div class="who-we-contant">
                         <h4 class="fadeInUp"> {{ content.field_card_title }}</h4>
                         <div class="mb-30 fadeInUp">{{ content.field_simple_card_description }}</div>
@@ -72,6 +76,7 @@
                         </ul>
                     </div>
                 </div>
+               {% if content.field_component_image['#items'] %}
                 <div class="col-12 col-lg-6">
                     <div class="row align-items-end">
                      {% for key,value in content.field_component_image['#items'] %}
@@ -81,6 +86,7 @@
                       {% endfor %}
                     </div>
                 </div>
+               {% endif %}
 
             </div>
         </div>
